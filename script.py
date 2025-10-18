@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+
+# Создаю полный HTML код для тропического свадебного сайта
+html_content = '''<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -567,7 +569,7 @@
     <!-- 5. ДОП ИНФОРМАЦИЯ -->
     <section class="section info-section">
         <h2 class="section-title">Полезная информация</h2>
-
+        
         <div class="info-block">
             <h3>🛂 Правила въезда в Таиланд</h3>
             <p>
@@ -584,7 +586,7 @@
         <div class="info-block">
             <h3>🏨 Где остановиться</h3>
             <p>Мы подобрали для вас отели рядом с местом проведения свадьбы:</p>
-
+            
             <div class="hotel-list">
                 <div class="hotel-card">
                     <h4>Centara Grand Beach Resort</h4>
@@ -592,14 +594,14 @@
                     <p>📞 +66 76 201 234</p>
                     <p><a href="https://www.centarahotelsresorts.com" target="_blank">Забронировать</a></p>
                 </div>
-
+                
                 <div class="hotel-card">
                     <h4>The Slate Phuket</h4>
                     <p>📍 1.2 км от места торжества</p>
                     <p>📞 +66 76 327 006</p>
                     <p><a href="https://www.theslatephuket.com" target="_blank">Забронировать</a></p>
                 </div>
-
+                
                 <div class="hotel-card">
                     <h4>Hilton Phuket Arcadia</h4>
                     <p>📍 800 м от места торжества</p>
@@ -704,7 +706,7 @@
                 <button type="submit" class="submit-button">Отправить ответ</button>
             </div>
         </form>
-
+        
         <p style="text-align: center; margin-top: 20px; color: #999; font-size: 0.9rem;">
             * Обязательные поля для заполнения
         </p>
@@ -808,4 +810,27 @@
     </script>
 
 </body>
-</html>
+</html>'''
+
+# Сохраняем файл
+with open('tropical-wedding-invitation.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("✅ Тропический свадебный сайт создан!")
+print("\n📋 ИНСТРУКЦИИ ПО НАСТРОЙКЕ:\n")
+print("1. FORMSPREE:")
+print("   - Зарегистрируйтесь на formspree.io")
+print("   - Создайте новую форму")
+print("   - Замените 'YOUR_FORM_ID' в строке <form action='https://formspree.io/f/YOUR_FORM_ID'>")
+print("   - Пример: https://formspree.io/f/xpwzyklr")
+print("\n2. ПЕРСОНАЛИЗАЦИЯ:")
+print("   - Замените имена 'Анна & Максим' на ваши")
+print("   - Измените дату '15 июня 2026' на вашу дату")
+print("   - Обновите адрес локации и ссылку на карту")
+print("   - Добавьте информацию об отелях")
+print("\n3. GITHUB PAGES:")
+print("   - Создайте репозиторий на GitHub")
+print("   - Переименуйте файл в 'index.html'")
+print("   - Загрузите в репозиторий")
+print("   - Включите GitHub Pages в настройках")
+print("\n✨ Файл готов к использованию!")
