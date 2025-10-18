@@ -89,22 +89,19 @@
         }
 
         .hero-image {
-            width: 100%;
-            max-width: 600px;
-            height: auto; /* вместо фиксированной высоты */
-            margin: 0 auto;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            overflow: hidden; /* для округлых углов */
-            }
+            width: 100vw; /* ширина всей видимой области окна браузера */
+            position: relative; /* если нужно для позиционирования дочерних элементов */
+            overflow: hidden; /* чтобы скрыть выходящие части */
+            margin-left: calc(50% - 50vw); /* убирает отступ, если блок внутри контейнера */
+        }
 
         .hero-image img {
             width: 100%;
             height: auto;
             display: block;
-            object-fit: cover; /* чтобы изображение красиво вписывалось */
-            border-radius: 20px;
-            }
+            object-fit: cover; /* изображение заполнит блок, не искажается */
+            border-radius: 0; /* если надо убрать округлости */
+        }
 
 
         /* 2. ОПИСАНИЕ И ПРИГЛАШЕНИЕ */
