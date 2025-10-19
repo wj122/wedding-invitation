@@ -34,101 +34,35 @@
 
         .section {
             padding: 80px 20px;
-            max-width: 1200px; /* УВЕЛИЧЕНА ШИРИНА с 1000px до 1200px */
+            max-width: 1000px;
             margin: 0 auto;
             position: relative;
         }
 
-        /* ДЕКОРАТИВНЫЕ ПАЛЬМОВЫЕ ЛИСТЬЯ */
-        .palm-leaves-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+        /* ДЕКОРАТИВНЫЕ ТЕНИ ПАЛЬМ */
+        .palm-shadow {
+            position: absolute;
             pointer-events: none;
-            z-index: 5;
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;
+            opacity: 0.12;
+            z-index: 1;
         }
 
-        .palm-leaves-container.show {
-            opacity: 1;
-        }
-
-        .palm-leaf-left {
-            position: absolute;
-            top: 15%;
-            left: -5%;
+        .palm-shadow-top-right {
+            top: -50px;
+            right: -100px;
             width: 400px;
-            height: 600px;
-            background: url('ten-pal-movyh-list-ev-element-dizaina.jpg') no-repeat;
+            height: 400px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M100,20 Q150,50 180,100 Q190,120 180,140 L100,100 Z" fill="%235a4a3a" opacity="0.1"/><path d="M100,20 Q50,50 20,100 Q10,120 20,140 L100,100 Z" fill="%235a4a3a" opacity="0.1"/></svg>') no-repeat;
             background-size: contain;
-            opacity: 0.6;
-            filter: grayscale(20%);
-            transform: translateX(-100%);
-            animation: slideInLeft 2s ease-out forwards;
         }
 
-        .palm-leaf-right {
-            position: absolute;
-            top: 25%;
-            right: -5%;
+        .palm-shadow-bottom-left {
+            bottom: -100px;
+            left: -50px;
             width: 350px;
-            height: 550px;
-            background: url('stand17.jpg') no-repeat;
+            height: 350px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M100,180 Q150,150 180,100 Q190,80 180,60 L100,100 Z" fill="%235a4a3a" opacity="0.1"/><path d="M100,180 Q50,150 20,100 Q10,80 20,60 L100,100 Z" fill="%235a4a3a" opacity="0.1"/></svg>') no-repeat;
             background-size: contain;
-            opacity: 0.5;
-            filter: grayscale(20%);
-            transform: translateX(100%) scaleX(-1);
-            animation: slideInRight 2s ease-out forwards;
-        }
-
-        .palm-leaf-bottom {
-            position: absolute;
-            bottom: 10%;
-            left: 2%;
-            width: 300px;
-            height: 450px;
-            background: url('image-1.jpg') no-repeat;
-            background-size: contain;
-            opacity: 0.4;
-            filter: grayscale(30%);
-            transform: translateY(100%);
-            animation: slideInBottom 2.5s ease-out forwards;
-        }
-
-        @keyframes slideInLeft {
-            0% {
-                transform: translateX(-100%);
-                opacity: 0;
-            }
-            100% {
-                transform: translateX(0);
-                opacity: 0.6;
-            }
-        }
-
-        @keyframes slideInRight {
-            0% {
-                transform: translateX(100%) scaleX(-1);
-                opacity: 0;
-            }
-            100% {
-                transform: translateX(0) scaleX(-1);
-                opacity: 0.5;
-            }
-        }
-
-        @keyframes slideInBottom {
-            0% {
-                transform: translateY(100%);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 0.4;
-            }
         }
 
         /* 1. НАЧАЛО - Hero Section */
@@ -239,7 +173,7 @@
             font-size: 1.15rem;
             line-height: 2;
             margin-bottom: 40px;
-            max-width: 900px; /* УВЕЛИЧЕНА с 700px */
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
             color: var(--brown-text);
@@ -254,7 +188,7 @@
             padding: 40px;
             background: var(--beige-light);
             border-radius: 0;
-            max-width: 900px; /* УВЕЛИЧЕНА с 700px */
+            max-width: 700px;
             margin: 0 auto;
             font-weight: 300;
             line-height: 1.8;
@@ -320,7 +254,7 @@
             width: 100%;
             height: 500px;
             margin: 0 auto;
-            overflow: visible; /* ИЗМЕНЕНО для видимости тук-тука */
+            overflow: hidden;
             box-shadow: 0 15px 40px var(--palm-shadow);
             background: linear-gradient(135deg, var(--peach), var(--sand));
             display: flex;
@@ -358,23 +292,20 @@
             background: var(--beige-light);
         }
 
-        /* Тук-тук анимация с реальным изображением */
+        /* Тук-тук анимация */
         .tuk-tuk {
             position: absolute;
-            bottom: -80px; /* Выше, чтобы было видно */
-            left: -150px;
-            width: 120px;
-            height: 120px;
+            bottom: 20px;
+            left: -80px;
+            font-size: 60px;
             opacity: 0;
             transition: opacity 0.3s ease;
             will-change: transform, opacity;
             z-index: 10;
-            background: url('Transparent-shadows-overlay-effect-II.jpg') no-repeat center;
-            background-size: contain;
         }
 
         .tuk-tuk.animate {
-            animation: tukTukMove 6s linear forwards;
+            animation: tukTukMove 5s linear forwards;
             opacity: 1;
         }
 
@@ -387,7 +318,7 @@
                 opacity: 1;
             }
             100% {
-                transform: translateX(calc(100vw + 200px));
+                transform: translateX(calc(100vw + 100px));
                 opacity: 0;
             }
         }
@@ -400,9 +331,6 @@
 
         .info-block {
             margin-bottom: 50px;
-            max-width: 1000px; /* УВЕЛИЧЕНА с 700px */
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .info-block h3 {
@@ -435,7 +363,7 @@
 
         .hotel-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* УВЕЛИЧЕНА минимальная ширина */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
             margin-top: 30px;
         }
@@ -475,7 +403,7 @@
             font-size: 1.15rem;
             line-height: 1.9;
             margin-bottom: 35px;
-            max-width: 900px; /* УВЕЛИЧЕНА с 700px */
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
             font-weight: 300;
@@ -508,7 +436,7 @@
         }
 
         .details-list {
-            max-width: 900px; /* УВЕЛИЧЕНА с 700px */
+            max-width: 700px;
             margin: 0 auto;
             text-align: left;
         }
@@ -544,7 +472,7 @@
         }
 
         .rsvp-form {
-            max-width: 700px; /* УВЕЛИЧЕНА с 600px */
+            max-width: 600px;
             margin: 0 auto;
             background: var(--white);
             padding: 50px 40px;
@@ -676,7 +604,7 @@
             font-size: 2.8rem;
             color: var(--brown-text);
             font-style: italic;
-            max-width: 900px; /* УВЕЛИЧЕНА с 800px */
+            max-width: 800px;
             margin: 0 auto;
             font-weight: 300;
             line-height: 1.6;
@@ -690,10 +618,6 @@
 
         /* АДАПТИВНОСТЬ */
         @media (max-width: 768px) {
-            .section {
-                max-width: 100%;
-            }
-
             .couple-names {
                 font-size: 2.8rem;
             }
@@ -730,36 +654,24 @@
             .location-image-container {
                 height: 400px;
             }
-
-            .palm-leaf-left,
-            .palm-leaf-right,
-            .palm-leaf-bottom {
-                display: none; /* Скрыть на мобильных */
-            }
         }
     </style>
 </head>
 <body>
-
-    <!-- ДЕКОРАТИВНЫЕ ПАЛЬМОВЫЕ ЛИСТЬЯ -->
-    <div class="palm-leaves-container" id="palmLeaves">
-        <div class="palm-leaf-left"></div>
-        <div class="palm-leaf-right"></div>
-        <div class="palm-leaf-bottom"></div>
-    </div>
 
     <!-- 1. НАЧАЛО -->
     <section class="hero-section">
         <h1 class="couple-names">Анна & Максим</h1>
         <p class="wedding-date">15 июня 2026</p>
         <p class="invitation-text">Приглашение на свадьбу</p>
-        <div class="hero-image" id="heroImage">
-            <img src="IMG_1442.jpg" alt="Фотография пары">
+        <div class="hero-image">
+            <img src="first_photo.jpg" alt="Фотография пары">
         </div>
     </section>
 
     <!-- 2. ОПИСАНИЕ И ПРИГЛАШЕНИЕ -->
     <section class="section description-section">
+        <div class="palm-shadow palm-shadow-top-right"></div>
         <h2>Мы создаём семью!</h2>
         <p class="description-text">
             Дорогие друзья и близкие! Мы с радостью приглашаем вас разделить с нами один из самых важных 
@@ -781,6 +693,7 @@
             <div class="calendar-day">15</div>
             <div class="calendar-year">2026</div>
         </div>
+        <div class="palm-shadow palm-shadow-bottom-left"></div>
     </section>
 
     <!-- 4. ЛОКАЦИЯ -->
@@ -795,7 +708,7 @@
             <a href="https://maps.google.com/?q=Karon+Beach+Phuket+Thailand" target="_blank" class="map-button">
                 Смотреть на карте
             </a>
-            <div class="tuk-tuk" aria-label="Проезжающий тук-тук"></div>
+            <div class="tuk-tuk" aria-label="Проезжающий тук-тук">🛺</div>
         </div>
     </section>
 
@@ -843,6 +756,7 @@
                 </div>
             </div>
         </div>
+        <div class="palm-shadow palm-shadow-top-right"></div>
     </section>
 
     <!-- 6. ДРЕСС-КОД -->
@@ -877,6 +791,7 @@
             <div class="detail-item">Фотограф и видеооператор запечатлеют все моменты</div>
             <div class="detail-item">Просим подтвердить участие до 1 мая 2026</div>
         </div>
+        <div class="palm-shadow palm-shadow-bottom-left"></div>
     </section>
 
     <!-- 8. АНКЕТА ГОСТЯ -->
@@ -975,6 +890,7 @@
             Будем рады видеть вас на нашем празднике!
         </p>
         <div class="tropical-decoration">🥥 🦩 🍹 🦩 🥥</div>
+        <div class="palm-shadow palm-shadow-top-right"></div>
     </section>
 
     <script>
@@ -1002,20 +918,6 @@
 
         updateCountdown();
         setInterval(updateCountdown, 1000);
-
-        // ПОКАЗ ПАЛЬМОВЫХ ЛИСТЬЕВ ПОСЛЕ ПРОКРУТКИ HERO IMAGE
-        const heroImage = document.getElementById('heroImage');
-        const palmLeaves = document.getElementById('palmLeaves');
-
-        const heroObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting && !palmLeaves.classList.contains('show')) {
-                    palmLeaves.classList.add('show');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        heroObserver.observe(heroImage);
 
         // АНИМАЦИЯ ПОЯВЛЕНИЯ СЕКЦИЙ
         const observerOptions = {
@@ -1049,7 +951,7 @@
                     tukTuk.classList.add('animate');
                     setTimeout(() => {
                         tukTuk.classList.remove('animate');
-                    }, 6000);
+                    }, 5000);
                 }
             });
         }, { threshold: 0.5 });
