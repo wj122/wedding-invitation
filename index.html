@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Свадебное приглашение</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;500;600&family=Beautiful+People&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,7 +13,7 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Cormorant Garamond', serif;
             color: #5a4a3a;
             line-height: 1.6;
             overflow-x: hidden;
@@ -58,50 +58,50 @@
 
         .palm-leaf-left {
             position: absolute;
-            top: 15%;
-            left: -5%;
-            width: 400px;
-            height: 600px;
-            background: url('palma_1.png') no-repeat;
+            top: 0%;
+            left: 0%;
+            width: 800px;
+            height: 1000px;
+            background: url('palma_2.png') no-repeat;
             background-size: contain;
             opacity: 0.6;
-            transform: translateX(-100%);
+            /* transform: translateX(50%) scaleX(-1); */
             animation: slideInLeft 2s ease-out forwards;
         }
 
         .palm-leaf-right {
             position: absolute;
-            top: 25%;
-            right: -5%;
-            width: 350px;
-            height: 550px;
-            background: url('palma_2.png') no-repeat;
+            top: 0%;
+            right: 0%;
+            width: 750px;
+            height: 1050px;
+            background: url('palma_3.png') no-repeat;
             background-size: contain;
             opacity: 0.5;
-            transform: translateX(100%) scaleX(-1);
+            /* transform: translateX(100%) scaleX(-1); */
             animation: slideInRight 2s ease-out forwards;
         }
 
         .palm-leaf-bottom {
             position: absolute;
-            bottom: 10%;
-            left: 2%;
-            width: 300px;
-            height: 450px;
-            background: url('palma_3.png') no-repeat;
+            bottom: -20%;
+            left: 0%;
+            width: 750px;
+            height: 950px;
+            background: url('palma_1.png') no-repeat;
             background-size: contain;
-            opacity: 0.4;
-            transform: translateY(100%);
+            opacity: 0.3;
+            /* transform: translateY(100%); */
             animation: slideInBottom 2.5s ease-out forwards;
         }
 
         @keyframes slideInLeft {
             0% {
-                transform: translateX(-100%);
+                transform: translateX(-100%) scaleX(1);
                 opacity: 0;
             }
             100% {
-                transform: translateX(0);
+                transform: translateX(0) scaleX(-1);
                 opacity: 0.6;
             }
         }
@@ -112,7 +112,7 @@
                 opacity: 0;
             }
             100% {
-                transform: translateX(0) scaleX(-1);
+                transform: translateX(0) scaleX(1);
                 opacity: 0.5;
             }
         }
@@ -120,11 +120,11 @@
         @keyframes slideInBottom {
             0% {
                 transform: translateY(100%);
-                opacity: 0;
+                /* opacity: 0; */
             }
             100% {
                 transform: translateY(0);
-                opacity: 0.4;
+                /* opacity: 0.4; */
             }
         }
 
@@ -171,13 +171,14 @@
         }
 
         .couple-names {
-            font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
+            font-family: 'Beautiful People', cursive;
+            font-size: 5.5rem;
             font-weight: 400;
             margin-bottom: 25px;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             position: relative;
             z-index: 2;
+            text-transform: uppercase;
         }
 
         .wedding-date {
@@ -203,7 +204,7 @@
         .hero-image {
             width: 100vw;
             max-width: 100%;
-            height: 600px; /* УВЕЛИЧЕНА высота с 500px */
+            height: 600px;
             margin: 0;
             position: relative;
             overflow: hidden;
@@ -213,10 +214,10 @@
         .hero-image img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* ИЗМЕНЕНО с cover на contain чтобы не обрезать */
+            object-fit: contain;
             object-position: center;
             display: block;
-            background: var(--sand); /* Фон на случай пустых мест */
+            background: var(--sand);
         }
 
         /* 2. ОПИСАНИЕ И ПРИГЛАШЕНИЕ */
@@ -235,7 +236,7 @@
         }
 
         .description-text {
-            font-size: 1.15rem;
+            font-size: 1.25rem;
             line-height: 2;
             margin-bottom: 40px;
             max-width: 900px;
@@ -306,7 +307,7 @@
             margin-top: 25px;
         }
 
-        /* 4. ЛОКАЦИЯ */
+        /* 4. ЛОКАЦИЯ - ОБНОВЛЕНА ШИРИНА */
         .location-section {
             background: var(--beige-light);
             text-align: center;
@@ -315,11 +316,11 @@
 
         .location-image-container {
             position: relative;
-            max-width: 100%;
+            max-width: 1200px;
             width: 100%;
             height: 600px;
             margin: 0 auto;
-            overflow: visible;
+            overflow: hidden;
             box-shadow: 0 15px 40px var(--palm-shadow);
             background: url('villa.png') center/cover no-repeat;
             display: flex;
@@ -327,7 +328,6 @@
             justify-content: center;
             align-items: center;
             padding: 40px;
-            /* padding: 80px 20px; */
         }
 
         /* Затемнение для читаемости текста */
@@ -366,6 +366,7 @@
             letter-spacing: 1px;
             position: relative;
             z-index: 1;
+            font-family: 'Cormorant Garamond', serif;
         }
 
         .map-button:hover {
@@ -379,8 +380,8 @@
             position: absolute;
             bottom: -50px;
             left: -200px;
-            width: 180px; /* УВЕЛИЧЕН размер с 120px */
-            height: 180px; /* УВЕЛИЧЕН размер с 120px */
+            width: 180px;
+            height: 180px;
             opacity: 0;
             transition: opacity 0.3s ease;
             will-change: transform, opacity;
@@ -431,7 +432,7 @@
         }
 
         .info-block p {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             line-height: 1.9;
             margin-bottom: 15px;
             font-weight: 300;
@@ -477,7 +478,7 @@
         }
 
         .hotel-card p {
-            font-size: 0.95rem;
+            font-size: 1rem;
             margin-bottom: 8px;
         }
 
@@ -489,7 +490,7 @@
         }
 
         .dresscode-text {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             line-height: 1.9;
             margin-bottom: 35px;
             max-width: 900px;
@@ -536,7 +537,7 @@
             background: var(--beige-light);
             border-radius: 0;
             border-left: 3px solid var(--accent-warm);
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             position: relative;
             font-weight: 300;
             transition: all 0.3s ease;
@@ -578,7 +579,7 @@
             margin-bottom: 10px;
             font-weight: 500;
             color: var(--brown-text);
-            font-size: 1rem;
+            font-size: 1.1rem;
         }
 
         .form-group input,
@@ -589,7 +590,7 @@
             border: 1px solid var(--beige-medium);
             border-radius: 0;
             font-size: 1rem;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Cormorant Garamond', serif;
             transition: all 0.3s;
             background: var(--beige-light);
             color: var(--brown-text);
@@ -634,6 +635,7 @@
             transition: all 0.3s ease;
             box-shadow: 0 8px 20px var(--palm-shadow);
             letter-spacing: 1px;
+            font-family: 'Cormorant Garamond', serif;
         }
 
         .submit-button:hover {
@@ -712,7 +714,7 @@
             }
 
             .couple-names {
-                font-size: 2.8rem;
+                font-size: 3.5rem;
             }
 
             .wedding-date {
@@ -900,7 +902,7 @@
     <!-- 8. АНКЕТА ГОСТЯ -->
     <section class="section form-section">
         <h2 class="section-title">Анкета гостя</h2>
-        <form class="rsvp-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <form class="rsvp-form" action="https://formspree.io/f/manpzzjd" method="POST">
             <div class="form-group">
                 <label for="name">Ваше имя и фамилия *</label>
                 <input type="text" id="name" name="name" required>
