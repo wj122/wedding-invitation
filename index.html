@@ -761,6 +761,166 @@
                 height: 120px;
             }
         }
+    
+        /* МОБИЛЬНАЯ ОПТИМИЗАЦИЯ */
+        @media (max-width: 768px) {
+            .section {
+                max-width: 100%;
+                padding: 60px 15px;
+            }
+
+            .couple-names {
+                font-size: 2.5rem;
+            }
+
+            .wedding-date {
+                font-size: 1rem;
+                letter-spacing: 2px;
+            }
+
+            .invitation-text {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero-image {
+                height: 350px;
+            }
+
+            .description-text,
+            .dresscode-text {
+                font-size: 1rem;
+            }
+
+            .invitation-message {
+                font-size: 1.2rem;
+                padding: 30px 20px;
+            }
+
+            .calendar-day {
+                font-size: 4.5rem;
+            }
+
+            .calendar-year {
+                font-size: 2.5rem;
+            }
+
+            .location-photo-wrapper {
+                height: 350px;
+            }
+
+            /* ТУК-ТУК НА МОБИЛЬНЫХ */
+            .tuk-tuk {
+                width: 100px; /* Уменьшаем размер */
+                height: 100px;
+                bottom: 20px; /* Поднимаем выше, чтобы было видно */
+                left: -120px;
+                z-index: 25; /* Ещё выше z-index */
+            }
+
+            .countdown-box {
+                min-width: 80px;
+                padding: 20px 15px;
+            }
+
+            .countdown-number {
+                font-size: 2.5rem;
+            }
+
+            .countdown-label {
+                font-size: 0.8rem;
+            }
+
+            .final-message {
+                font-size: 1.8rem;
+            }
+
+            .hotel-list {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-item {
+                font-size: 1rem;
+                padding: 20px 20px 20px 50px;
+            }
+
+            .rsvp-form {
+                padding: 30px 20px;
+            }
+
+            /* Скрываем пальмовые листья на мобильных */
+            .palm-leaf-left,
+            .palm-leaf-right,
+            .palm-leaf-bottom {
+                display: none;
+            }
+
+            /* Адаптация location content для мобильных */
+            .location-address {
+                font-size: 1.2rem;
+                margin-bottom: 25px;
+            }
+
+            .map-button {
+                font-size: 1rem;
+                padding: 15px 35px;
+            }
+
+            .info-block h3 {
+                font-size: 1.6rem;
+            }
+
+            .hotel-card {
+                padding: 25px 20px;
+            }
+        }
+
+        /* ДОПОЛНИТЕЛЬНАЯ ОПТИМИЗАЦИЯ ДЛЯ МАЛЕНЬКИХ ЭКРАНОВ */
+        @media (max-width: 480px) {
+            .couple-names {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-image {
+                height: 300px;
+            }
+
+            .location-photo-wrapper {
+                height: 300px;
+            }
+
+            /* ТУК-ТУК ЕЩЁ МЕНЬШЕ */
+            .tuk-tuk {
+                width: 80px;
+                height: 80px;
+                bottom: 30px;
+                left: -100px;
+            }
+
+            .calendar-day {
+                font-size: 3.5rem;
+            }
+
+            .countdown-container {
+                gap: 15px;
+            }
+
+            .countdown-box {
+                min-width: 70px;
+                padding: 15px 10px;
+            }
+
+            .countdown-number {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
