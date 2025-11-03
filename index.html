@@ -6,6 +6,16 @@
     <title>Свадебное приглашение</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;500;600&family=Beautiful+People&display=swap" rel="stylesheet">
     <style>
+
+        /* Подключение TTF шрифта */
+        @font-face {
+            font-family: 'Bikham Cyr Script';
+            src: url('fonts/BikhamCyrScript.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -63,7 +73,7 @@
             left: 0%;
             width: calc(600px * var(--palm-scale));
             height: calc(800px * var(--palm-scale));
-            background: url('palma_2.png') no-repeat;
+            background: url('images/palma_2.png') no-repeat;
             background-size: contain;
             opacity: 0.4;
             animation: slideInLeft 2s ease-out forwards;
@@ -75,7 +85,7 @@
             right: 0%;
             width: calc(600px * var(--palm-scale));
             height: calc(800px * var(--palm-scale));
-            background: url('palma_3.png') no-repeat;
+            background: url('images/palma_3.png') no-repeat;
             background-size: contain;
             opacity: 0.4;
             animation: slideInRight 2s ease-out forwards;
@@ -87,7 +97,7 @@
             left: 0%;
             width: calc(1050px * var(--palm-scale));
             height: calc(680px * var(--palm-scale));
-            background: url('palma_1.png') no-repeat;
+            background: url('images/palma_1.png') no-repeat;
             background-size: contain;
             opacity: 0.2;
             animation: slideInBottom 2.5s ease-out forwards;
@@ -311,7 +321,7 @@
             margin: 0 auto;
             overflow: hidden;
             box-shadow: 0 15px 40px var(--palm-shadow);
-            background: url('villa.png') center/cover no-repeat;
+            background: url('images/villa.png') center/cover no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -374,7 +384,7 @@
             transition: opacity 0.3s ease;
             will-change: transform, opacity;
             z-index: 10;
-            background: url('tuk_tuk.png') no-repeat center;
+            background: url('images/tuk_tuk.png') no-repeat center;
             background-size: contain;
             background-color: transparent;
         }
@@ -1062,7 +1072,7 @@
         <p class="wedding-date">28 февраля 2026</p>
         <p class="invitation-text">Приглашение на свадьбу</p>
         <div class="hero-image" id="heroImage">
-            <img src="first_photo.jpg" alt="Фотография пары">
+            <img src="images/first_photo.jpg" alt="Фотография пары">
         </div>
     </section>
 
@@ -1084,7 +1094,7 @@
     <section class="section date-section">
         <h2 class="section-title">Дата торжества</h2>
         <div class="calendar-container">
-            <img src="kalend.png" alt="Дата свадьбы" class="calendar-image">
+            <img src="images/kalend.png" alt="Дата свадьбы" class="calendar-image">
         </div>
     </section>
 
