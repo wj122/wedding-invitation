@@ -93,7 +93,8 @@
 
         .palm-leaf-bottom {
             position: absolute;
-            bottom: -20%;
+            top: 70%; /* Начинается с 70% высоты окна */
+            /* bottom: -20%; */
             left: 0%;
             width: min(60vw, calc(1050px * var(--palm-scale)));
             height: min(40vh, calc(680px * var(--palm-scale)));
@@ -253,7 +254,7 @@
 
         .invitation-message {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             /* font-style: italic; */
             color: var(--brown-text);
             padding: 40px;
@@ -276,7 +277,7 @@
             font-family: 'Cormorant Garamond', serif;
             font-size: 2.8rem;
             color: var(--brown-text);
-            margin-bottom: 50px;
+            margin-bottom: 0px;
             font-weight: 400;
             text-align: center;
         }
@@ -430,7 +431,7 @@
         }
 
         .info-block p {
-            font-size: 1.15rem;
+            font-size: 1.4rem;
             line-height: 1.9;
             margin-bottom: 15px;
             font-weight: 300;
@@ -542,7 +543,7 @@
         }
 
         .dresscode-text {
-            font-size: 1.3rem;
+            font-size: 1.53rem;
             line-height: 1.9;
             margin-bottom: 35px;
             max-width: 900px;
@@ -612,6 +613,25 @@
             position: relative;
         }
 
+        .form-intro-text {
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+            text-align: center;
+            font-size: 1.5rem;
+            line-height: 1.8;
+            color: var(--brown-text);
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .form-intro-text p {
+            margin-bottom: 20px;
+        }
+
+        .form-intro-text strong {
+            color: var(--accent-warm);
+            font-weight: 600;
+        }
+
         .rsvp-form {
             max-width: 700px;
             margin: 0 auto;
@@ -630,7 +650,7 @@
             margin-bottom: 10px;
             font-weight: 500;
             color: var(--brown-text);
-            font-size: 1.1rem;
+            font-size: 1.3rem;
         }
 
         .form-group input,
@@ -640,7 +660,7 @@
             padding: 14px;
             border: 1px solid var(--beige-medium);
             border-radius: 0;
-            font-size: 1rem;
+            font-size: 1.2rem;
             font-family: 'Cormorant Garamond', serif;
             transition: all 0.3s;
             background: var(--beige-light);
@@ -1226,6 +1246,18 @@
     <!-- 8. АНКЕТА ГОСТЯ -->
     <section class="section form-section">
         <h2 class="section-title">Анкета гостя</h2>
+
+        <!-- <p style="text-align: center; margin-top: 25px; color: --brown-text; font-family: 'Playfair Display'; font-size: 1.5rem;"> 
+            Будем ждать ответа до 15.01.2026 
+        </p> -->
+
+        <div class="form-intro-text">
+            <!-- <p>Дорогие гости! Мы очень ждём ваших ответов до <strong>1 февраля 2026 года</strong>,  -->
+            <!-- чтобы нам было проще организовать этот особенный день.</p> -->
+            <p>Будем ждать ответа до 15 января 2026 года</p>
+        </div>
+
+
         <form class="rsvp-form" action="https://formspree.io/f/manpzzjd" method="POST">
             <div class="form-group">
                 <label for="name">Ваше имя и фамилия *</label>
@@ -1244,7 +1276,10 @@
                         <input type="radio" name="attendance" value="yes" required> Да, с удовольствием!
                     </label>
                     <label>
-                        <input type="radio" name="attendance" value="no"> К сожалению, смогу
+                        <input type="radio" name="attendance" value="ye"> К сожалению, смогу
+                    </label>
+                    <label>
+                        <input type="radio" name="attendance" value="no"> Я пидор
                     </label>
                 </div>
             </div>
@@ -1289,9 +1324,6 @@
             * Обязательные поля для заполнения
         </p>
 
-        <p style="text-align: center; margin-top: 25px; color: --brown-text; font-family: 'Playfair Display'; font-size: 1.5rem;"> 
-            Будем ждать ответа до 1.01.26  :)
-        </p>
     </section>
 
     <!-- 9. ОБРАТНЫЙ ОТСЧЁТ -->
@@ -1359,12 +1391,20 @@
         const heroObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (!entry.isIntersecting && !palmLeaves.classList.contains('show')) {
-                    palmLeaves.classList.add('show');
+                    // Синхронизируем с анимацией появления секций
+                    setTimeout(() => {
+                        palmLeaves.classList.add('show');
+                    }, 800);
                 }
             });
-        }, { threshold: 0.1 });
+        }, { 
+            threshold: 0.3, // Более строгое условие
+            rootMargin: '0px 0px -50px 0px'
+        });
 
         heroObserver.observe(heroImage);
+
+
 
         // АНИМАЦИЯ ПОЯВЛЕНИЯ СЕКЦИЙ
         const observerOptions = {
