@@ -1234,10 +1234,10 @@
         <h2 class="section-title">Что подарить...</h2>
         <div class="details-list">
             <div class="detail-item"> Поскольку наша свадьба состоится на прекрасной (и довольно далёкой) Шри-Ланке, нам приходится с грустью признать: перевозка микроволновок, мультиварок, сервизов, постельного белья, а тем более холодильников, стиральных машин и пылесосов — дело героическое, но обречённое на провал.
-                </br>
+                </br></br>
                  Аэропорты Шри-Ланки к холодильникам относятся с прохладой, а нашим чемоданам уже сейчас снятся кошмары по ночам. Переговоры с местными обезьянами не привели к результату. Они категорически отказались перевозить холодильники и стиральные машины через джунгли.
-                </br>
-                 Поэтому вместо габаритных подарков мы будем очень рады вашему вкладу в конверте — ему точно не страшны ни пальмы, ни аэропорты с пограничниками, ни тропические приключения! </div>
+                </br></br>
+                 Поэтому вместо габаритных подарков мы будем очень рады вашему вкладу в конверте — ему точно не страшны ни пальмы, ни аэропорты с пограничниками, ни тропические приключения!) </div>
             <!-- <div class="detail-item">Будем благодарны вам за сохранение уютного вечера и отсутствия криков: "Горько!"</div> -->
             <!-- <div class="detail-item">Фотограф и видеооператор запечатлеют все моменты</div> -->
         </div>
@@ -1276,10 +1276,7 @@
                         <input type="radio" name="attendance" value="yes" required> Да, с удовольствием!
                     </label>
                     <label>
-                        <input type="radio" name="attendance" value="ye"> К сожалению, смогу
-                    </label>
-                    <label>
-                        <input type="radio" name="attendance" value="no"> Я пидор
+                        <input type="radio" name="attendance" value="no"> К сожалению, не смогу
                     </label>
                 </div>
             </div>
@@ -1390,16 +1387,18 @@
 
         const heroObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (!entry.isIntersecting && !palmLeaves.classList.contains('show')) {
-                    // Синхронизируем с анимацией появления секций
-                    setTimeout(() => {
-                        palmLeaves.classList.add('show');
-                    }, 800);
+                // Показываем пальмы ТОЛЬКО когда hero-section скрывается
+                if (entry.isIntersecting) {
+                    // Hero-section в зоне видимости - СКРЫВАЕМ пальмы
+                    palmLeaves.classList.remove('show');
+                } else {
+                    // Hero-section скрылся - ПОКАЗЫВАЕМ пальмы
+                    palmLeaves.classList.add('show');
                 }
             });
         }, { 
-            threshold: 0.3, // Более строгое условие
-            rootMargin: '0px 0px -50px 0px'
+            threshold: 0.1,
+            rootMargin: '0px 0px 0px 0px'
         });
 
         heroObserver.observe(heroImage);
