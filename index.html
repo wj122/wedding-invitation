@@ -862,23 +862,53 @@
             :root {
                 --palm-scale: 0.4;
             }
-            
-            .section {
-                padding: 50px 15px;
-            }
-            
+                
             .couple-names {
-                font-size: 4rem;
+                font-size: 5.5rem; /* Было 3.5rem - УВЕЛИЧИЛИ */
+                line-height: 1.2;
+                margin-bottom: 20px;
             }
             
             .wedding-date {
-                font-size: 2.2rem;
+                font-size: 3.0rem; /* Было 2.2rem - УВЕЛИЧИЛИ */
                 margin-bottom: 40px;
+                letter-spacing: 3px;
             }
             
             .invitation-text {
-                font-size: 2.5rem;
+                font-size: 3.2rem; /* Было 2.5rem - УВЕЛИЧИЛИ */
                 margin-bottom: 40px;
+            }
+            
+            .final-message {
+                font-size: 3.5rem; /* Было 2.5rem - УВЕЛИЧИЛИ */
+                line-height: 1.3;
+            }
+
+            .radio-group {
+                flex-direction: column; /* Вертикальное расположение */
+                align-items: flex-start;
+                gap: 12px;
+                width: 100%;
+            }
+            
+            /* .radio-group label {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+                padding: 12px 20px;
+                background: var(--beige-light);
+                border-radius: 10px;
+                border: 1px solid var(--beige-medium);
+            } */
+            
+            .radio-group input[type="radio"] {
+                transform: scale(1.2); /* Увеличиваем радио-кнопки */
+                margin-right: 8px;
+            }
+
+            .section {
+                padding: 50px 15px;
             }
             
             .hero-image {
@@ -954,10 +984,6 @@
                 font-size: 0.8rem;
             }
             
-            .final-message {
-                font-size: 2.5rem;
-            }
-            
             .detail-item {
                 font-size: 1rem;
                 padding: 20px 20px 20px 50px;
@@ -986,15 +1012,15 @@
             }
             
             .couple-names {
-                font-size: 3rem;
+                font-size: 4rem;
             }
             
             .wedding-date {
-                font-size: 1.8rem;
+                font-size: 2.5rem;
             }
             
             .invitation-text {
-                font-size: 2rem;
+                font-size: 2.8rem;
             }
             
             .hero-image {
@@ -1043,7 +1069,7 @@
             }
             
             .final-message {
-                font-size: 2rem;
+                font-size: 3rem;
             }
             
             .tuk-tuk {
@@ -1254,7 +1280,7 @@
         <div class="form-intro-text">
             <!-- <p>Дорогие гости! Мы очень ждём ваших ответов до <strong>1 февраля 2026 года</strong>,  -->
             <!-- чтобы нам было проще организовать этот особенный день.</p> -->
-            <p>Будем ждать ответа до 15 января 2026 года</p>
+            <p>Будем ждать ответа </br> до 15 января 2026 года</p>
         </div>
 
 
