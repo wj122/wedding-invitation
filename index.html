@@ -1295,23 +1295,28 @@
             <!-- <div class="detail-item">Фотограф и видеооператор запечатлеют все моменты</div> -->
         </div>
     </section>
-
+    
     <!-- 8. АНКЕТА ГОСТЯ -->
     <section class="section form-section">
         <h2 class="section-title">Анкета гостя</h2>
 
-        <!-- <p style="text-align: center; margin-top: 25px; color: --brown-text; font-family: 'Playfair Display'; font-size: 1.5rem;"> 
-            Будем ждать ответа до 15.01.2026 
-        </p> -->
-
         <div class="form-intro-text">
-            <!-- <p>Дорогие гости! Мы очень ждём ваших ответов до <strong>1 февраля 2026 года</strong>,  -->
-            <!-- чтобы нам было проще организовать этот особенный день.</p> -->
             <p>Будем ждать ответа </br> до 15 января 2026 года</p>
         </div>
 
+        <!-- Сообщение об успешной отправке (изначально скрыто) -->
+        <div id="success-message" style="display: none; text-align: center; padding: 40px; background: #f0f7f0; border: 1px solid #d0e7d0; margin: 20px auto; max-width: 700px;">
+            <h3 style="color: #2d5a2d; margin-bottom: 15px;">Спасибо!</h3>
+            <p style="color: #2d5a2d; font-size: 1.2rem;">Ваш ответ успешно отправлен. Мы очень рады!</p>
+        </div>
 
-        <form class="rsvp-form" action="https://formspree.io/f/manpzzjd" method="POST">
+        <!-- Сообщение об ошибке (изначально скрыто) -->
+        <div id="error-message" style="display: none; text-align: center; padding: 40px; background: #f7f0f0; border: 1px solid #e7d0d0; margin: 20px auto; max-width: 700px;">
+            <h3 style="color: #5a2d2d; margin-bottom: 15px;">Ошибка</h3>
+            <p style="color: #5a2d2d; font-size: 1.2rem;">Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз или свяжитесь с нами напрямую.</p>
+        </div>
+
+        <form class="rsvp-form" id="weddingForm" method="POST">
             <div class="form-group">
                 <label for="name">Ваше имя и фамилия *</label>
                 <input type="text" id="name" name="name" required>
@@ -1366,14 +1371,13 @@
             </div>
 
             <div style="text-align: center;">
-                <button type="submit" class="submit-button">Отправить ответ</button>
+                <button type="submit" class="submit-button" id="submitBtn">Отправить ответ</button>
             </div>
         </form>
 
         <p style="text-align: center; margin-top: 25px; color: #999; font-size: 0.9rem;">
             * Обязательные для заполнения поля
         </p>
-
     </section>
 
     <!-- 9. ОБРАТНЫЙ ОТСЧЁТ -->
@@ -1496,6 +1500,48 @@
         }, { threshold: 0.5 });
 
         tukTukObserver.observe(locationSection);
+
+        // AJAX отправка формы
+        document.getElementById('weddingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.textContent;
+            
+            // Показываем индикатор загрузки
+            submitBtn.textContent = 'Отправка...';
+            submitBtn.disabled = true;
+            
+            // Собираем данные формы
+            const formData = new FormData(form);
+            
+            // Отправляем AJAX запрос
+            fetch('https://formspree.io/f/manpzzjd', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Успешная отправка
+                    form.style.display = 'none';
+                    document.getElementById('success-message').style.display = 'block';
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            })
+            .catch(error => {
+                // Ошибка
+                console.error('Error:', error);
+                document.getElementById('error-message').style.display = 'block';
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+        });
+
     </script>
 
 </body>
